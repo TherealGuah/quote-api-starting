@@ -37,7 +37,7 @@ const quotes = [
     quote: 'Understand well as I may, my comprehension can only be an infinitesimal fraction of all I want to understand.',
     person: 'Ada Lovelace',
     year: "1894",
-    source: "Unknown"
+    source: ""
   },
   {
     id: 7,
@@ -58,14 +58,14 @@ const quotes = [
     quote: 'As soon as we started programming, we found to our surprise that it wasn’t as easy to get programs right as we had thought.  Debugging had to be discovered.  I can remember the exact instant when I realized that a large part of my life from then on was going to be spent in finding mistakes in my own programs.',
     person: 'Maurice Wilkes',
     year: "1949",
-    source: "Unknown"
+    source: ""
   },
   {
     id: 10,
     quote: 'Learning to write programs stretches your mind, and helps you think better, creates a way of thinking about things that I think is helpful in all domains.',
     person: 'Bill Gates',
     year: "Unknown",
-    source: "Unknown"
+    source: ""
   },
   {
     id: 11,

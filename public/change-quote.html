@@ -11,10 +11,12 @@
   <h1>Quote API</h1>
   <nav>
     <a href="index.html">Home</a>
-    <a href="change-quote.html">Change a Quote</a>
+    <a href="add-quote.html">Add a new Quote</a>
   </nav>
-  <h2>Add a New Quote</h2>
+  <h2>Change a Quote</h2>
   <div class="inputs">
+    <label for="id">Quote Number:</label>
+    <input id="id" value="" placeholder="Search in home">
     <label for="quote">Quote text:</label>
     <input id="quote" value="" placeholder="Quote">
     <label for="person">Person:</label>
@@ -23,11 +25,11 @@
     <input id="year" value="" placeholder="Year">
   </div>
   <div>
-    <button id="submit-quote">Submit Your Quote</button>
+    <button id="submit-change">Submit your change to Quote</button>
   </div>
   <div id="new-quote">
     
   </div>
-  <script src="add-quote.js"></script>
+  <script src="change-quote.js"></script>
 </body>
 </html>

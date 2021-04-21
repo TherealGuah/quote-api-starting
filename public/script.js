@@ -20,10 +20,14 @@ const renderQuotes = (quotes = []) => {
   resetQuotes();
   if (quotes.length > 0) {
     quotes.forEach(quote => {
+      const link = quote.source ? "Link to source" : "";
       const newQuote = document.createElement('div');
       newQuote.className = 'single-quote';
-      newQuote.innerHTML = `<div class="quote-text">${quote.quote}</div>
-      <div class="attribution">- ${quote.person}</div>`;
+      newQuote.innerHTML = `<div>Quote Number: ${quote.id}</div>
+                            <div class="quote-text">${quote.quote}</div>
+                            <div class="attribution">- ${quote.person} - ${quote.year} 
+                              <a href=${quote.source}>${link}</a>
+                            </div>`;
       quoteContainer.appendChild(newQuote);
     });
   } else {

@@ -34,9 +34,14 @@ app.get('/api/quotes', (req, res, next) => {
 // 6.
 app.post('/api/quotes', (req, res, next) => {
     // ?quote="I am become Death, the destroyer of worlds."&person="J. Robert Oppenheimer"
-    const newQuote = { quote: req.query.quote, person: req.query.person };
+    const randomQuoteId = () => {
+        let randomId = Math.floor(Math.random() * 1000);
+        return randomId;
+      };
+    const newQuote = { quote: req.query.quote, person: req.query.person, year: req.query.year, id: randomQuoteId()};
     const responseQuote = { quote: newQuote };
-    if (req.query.quote && req.query.person) {
+    
+    if (req.query.quote && req.query.person && req.query.year) {
         quotes.push(newQuote);
         res.status(201).send(responseQuote);
     } else {

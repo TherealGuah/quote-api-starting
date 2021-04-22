@@ -8,12 +8,15 @@ submitButton.addEventListener('click', () => {
     const id = document.getElementById('id').value;
   
 
-  fetch(`/api/quotes/${id}`, {
+  fetch(`/api/quotes/${id}?quote=${quote}&person=${person}&year=${year}`, {
     method: 'PUT',
   })
-  .then(response => response.json())
-  .then(({quote}) => {
-    console.log(quote);
+  .then(response => {
+    // console.log(response);
+    return response.json()
+  })
+  .then( quote => {
+    // console.log(quote);
     const newQuote = document.createElement('div');
     newQuote.innerHTML = `
             <h3>Congrats, your quote was changed!</h3>

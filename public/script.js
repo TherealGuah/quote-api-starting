@@ -1,6 +1,7 @@
 const fetchAllButton = document.getElementById('fetch-quotes');
 const fetchRandomButton = document.getElementById('fetch-random');
 const fetchByAuthorButton = document.getElementById('fetch-by-author');
+const deleteByIdButton = document.getElementById('delete-by-id');
 
 const quoteContainer = document.getElementById('quote-container');
 const quoteText = document.querySelector('.quote');
@@ -76,4 +77,19 @@ fetchByAuthorButton.addEventListener('click', () => {
   .then(response => {
     renderQuotes(response.quotes);
   });
+});
+
+deleteByIdButton.addEventListener('click', () => {
+  const id = document.getElementById('id').value;
+  fetch(`/api/quotes/${id}`, {
+    method: 'DELETE',
+  })
+  .then(response => {
+    // console.log(response);
+    if (response.ok) {
+      return response;
+    } else {
+      renderError(response);
+    }
+  }) 
 });

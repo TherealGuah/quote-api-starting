@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 
 const { quotes } = require('./data');
-const { getRandomElement } = require('./utils');
+const { getRandomElement, getIndexById, updateElement } = require('./utils');
 
 const PORT = process.env.PORT || 4001;
 
@@ -51,19 +51,24 @@ app.post('/api/quotes', (req, res, next) => {
 
 // 8.1 - PUT request
 app.put('/api/quotes/:id', (req, res, next) => {
-    const id = req.params.id;
-    console.log(id);
+    const quotesIndex = getIndexById(req.params.id, quotes);
+    if (quotesIndex !== -1) {
+    updateElement(req.params.id, req.query, quotes);
+    // console.log(quotes[quotesIndex]);
+    res.send(quotes[quotesIndex]);
+  } else {
+    res.status(404).send();
+  }
 });
-
-
-
-
-
-
-
-
-
-
-
+// // DELETE request
+app.delete('/api/quotes/:id', (req, res, next) => {
+    const quotesIndex = getIndexById(req.params.id, quotes);
+    if (quotesIndex !== -1) {
+    quotes.splice(quotesIndex, 1);
+    res.status(204).send();
+  } else {
+    res.status(404).send();
+  }
+});
 // 3.
 app.listen(PORT);

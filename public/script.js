@@ -91,5 +91,8 @@ deleteByIdButton.addEventListener('click', () => {
     } else {
       renderError(response);
     }
-  }) 
+  })
+  .then( response => {
+    document.getElementById('id').value = '';
+  })
 });

@@ -23,5 +23,8 @@ submitButton.addEventListener('click', () => {
             <p>Go to the <a href="index.html">home page</a> to request and view all quotes.</p>
             `;
     newQuoteContainer.appendChild(newQuote);
+    document.getElementById('quote').value = '';
+    document.getElementById('person').value = '';
+    document.getElementById('year').value = '';
   });
 });
